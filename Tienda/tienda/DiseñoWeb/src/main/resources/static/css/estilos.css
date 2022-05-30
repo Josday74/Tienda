@@ -1,0 +1,34 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 29 may. 2022, 22:30:40
+    Author     : Josday
+*/
+*{
+    background-color: whitesmoke;
+}
+body{
+    background-image: url('../img/cannon.jpg');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    
+}
+h2{
+    background-color: green;
+    color:white;
+}
+#encabezado{
+    background-color: black;
+    color: #00cc00;
+    text-align: center;
+}
+.articulo{
+    background-color: bisque;
+    font-family: sans-serif;
+    color: black;
+}
+p span{
+    color: blue;
+}
