@@ -7,7 +7,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : Josday
 */
 *{
-    background-color: whitesmoke;
+    background-color: #ffffff;
 }
 body{
     background-image: url('../img/cannon.jpg');
@@ -25,7 +25,7 @@ h2{
     text-align: center;
 }
 .articulo{
-    background-color: bisque;
+    background-color: #ffffff;
     font-family: sans-serif;
     color: black;
 }

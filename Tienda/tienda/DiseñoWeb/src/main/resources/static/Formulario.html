@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="es"> 
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Página principla de la tienda TechShop">
+        <meta name="keywords" content="html5, css, TechShop">
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header>
+            <h1 id="encabezado">TechShop</h1>
+        </header>
+        <nav>
+            <a href="ejemplo6.html">Back</a> | <a href="indexRespaldo.html">Home</a> | <a href="ejemplo2.html">Next</a>
+        </nav>
+        <section>
+            <h2>Formulario</h2>
+            <article>
+                <header><h3>Tipos de input</h3></header>
+                <hr>
+                <form action="confirmacion.jsp" method="POST">
+                    <fieldset>
+                        <legend> Datos Personales </legend>
+                        <label>Nombre completo</label>
+                        <input type="text" value="texto" required/>
+                        <br/>
+                        <label>Estatura</label>
+                        <input type="number" name="estatura" min="100" max="240" value="170"/>
+                        <br/>  
+                        <label>Correo electrónico:</label>
+                        <input type="email" name="correo" placeholder="sucorreo@xxxxx.xxx"/>
+                        <br/>
+                        <label>Celular</label>
+                        <input type="tel" name="telefono" placeholder="1232-4455" required/>
+                        <br/>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend> Otros datos </legend>
+                        <label>Boton</label>
+                        <input type="button" name="boton1" value="boton1"/>
+                        <br/>
+                        <label>Sus generos preferidos</label>
+                        <input type="checkbox" name="accion">Accion
+                        <input type="checkbox" name="comedia">Comedia
+                        <input type="checkbox" name="terror">Terror
+                        <br/>
+                        <label>Seleccione el fondo de pantalla:</label>
+                        <input type="color" name="color">
+                        <br/>
+                        <label>Dia de ingreso:</label>
+                        <input type="date" name="fechaIngre">
+                        <br/>
+                        <label>Hora de nacimiento:</label>
+                        <input type="datetime-local" name="fechaNaci">
+                        <br/>
+                        <label>Fotografia:</label>
+                        <input type="file" name="foto">
+                        <br/>
+                        <label>Este código no se ve:</label>
+                        <input type="hidden" name="idProducto" value="XHT-001"/>
+                        <br/>
+                        <label>Contraseña:</label>
+                        <input type="password" name="password"  placeholder="*****"/>
+                        <br/>
+                        <label>Horario</label>
+                        <input type="radio" name="horario" value="M"/>Mañana
+                        <input type="radio" name="horario" value="I"/>Intermedio
+                        <input type="radio" name="horario" value="T"/>Tarde
+                        <input type="radio" name="horario" value="N"/>Noche
+                        <br/>
+                        <label>Reset</label>
+                        <input type="reset" name="Borrar todo"/>
+                        <br/>
+                        <label>Busqueda</label>
+                        <input type="search" name="buscar" placeholder="Bucar..."/>
+                        <br/>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend> Enviar Informacion </legend>
+                        <label>Enviar Info</label>
+                        <input type="submit" value="Enviar"/>
+                        <br/>
+                    </fieldset>
+
+
+                </form>    
+            </article>
+        </section>    
+        <hr>
+        <footer>
+            Sitio desarrollado <span>en el curso Web</span>y Patrones 2022 &COPY; 
+        </footer>
+    </body>
+</html>

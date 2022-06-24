@@ -1,0 +1,47 @@
+* {
+margin: 0;
+box-sizing: border-box;
+}
+
+
+
+body {
+font-family: sans-serif;
+
+}
+
+
+
+.header {
+background-color: #076af0;
+height: 80px;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%
+}
+
+
+
+.nav {
+display: flex;
+justify-content: space-between;
+max-width: 992px;
+margin: 0 auto;
+}
+
+
+
+.logo {
+font-size: 30px;
+font-weight: bold;
+padding: 0 40px;
+line-height: 80px;
+}
+
+
+
+.nav-link {
+color: white;
+text-decoration: none;
+}
