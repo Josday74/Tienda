@@ -15,24 +15,24 @@ import lombok.Data;
 @Entity
 @Table(name = "cliente")
 public class Cliente implements Serializable {
-//Para utilizarlo en la generación de la llave primaria autoincremental
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialversionUID = 1L; // Permite generar valor autoincremental para ID de BD    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_cliente")
+    @Column(name = "id_cliente")
     private Long idCliente;
+    private String nombre;
+    private String apellidos;
+    private String correo;
+    private String telefono;
 
-    String nombre;
-    String apellidos;
-    String correo;
-    String telefono;
-    
-    @JoinColumn(name="ide_credito", referencedColumnName="id_credito")
+    @JoinColumn(name = "id_credito", referencedColumnName = "id_credito")
     @ManyToOne
     private Credito credito;
 
-    public Cliente() {//Constructor default
+    public Cliente() { //Constructor default
+
     }
 
     public Cliente(String nombre, String apellidos, String correo, String telefono, Credito credito) {
@@ -42,6 +42,5 @@ public class Cliente implements Serializable {
         this.telefono = telefono;
         this.credito = credito;
     }
-    
 
 }

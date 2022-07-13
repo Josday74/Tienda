@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+        <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <div class="contenido">
+            <h2> Nuestras Categorias</h2>
+            <a th:href="@{/categoria/nuevo}">Nueva Categoria</a>
+            <div th:if="${categorias != null and !categorias.empty}" >
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Descripcion</th>
+                            <th>Activo</th>
+                            <th>Modificar</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="categoria: ${categorias}">
+                            <td th:text="${categoria.descripcion}"></td>
+                            <td th:text="${categoria.activo}"></td>
+                            <td><a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}">Modificar</a></td>
+                            <td><a th:href="@{/categoria/modificar/}+${categoria.idCategoria}">Eliminar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div th:if="${categorias == null and categorias.empty}">
+            No tenemos lista de categorias que mostrar..          
+        </div>
+        <footer th:replace="layout/plantilla :: footer"/>
+
+    </body>
+</html>
+
