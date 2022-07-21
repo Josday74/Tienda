@@ -1,7 +1,10 @@
 package com.tienda.controller;
 
+import com.tienda.dao.ClienteDao;
 import com.tienda.domain.Cliente;
 import com.tienda.service.ClienteService;
+import java.util.Arrays;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,42 +14,51 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @Slf4j
-
 public class ClienteController {
-    
 
-   @Autowired
-   private ClienteService clienteService;
-    
+    @Autowired
+    private ClienteService clienteService;
+
     @GetMapping("/cliente/listado")
-    public String inicio(Model model){
-
+    public String inicio(Model model) {
         var clientes = clienteService.getClientes();
-        model.addAttribute("clientes",clientes);
+        model.addAttribute("clientes", clientes);
         return "cliente/listado";
     }
-    
+
     @GetMapping("/cliente/nuevo")
-    public String nuevoCliente(Cliente cliente){
+    public String nuevoCliente(Cliente cliente) {
         return "cliente/modificar";
     }
-    
+
     @PostMapping("/cliente/guardar")
-    public String guardarCliente(Cliente cliente){
+    public String guardarCliente(Cliente cliente) {
         clienteService.save(cliente);
         return "redirect:/cliente/listado";
     }
-    
-    @GetMapping("/cliente/modificar/{idCliente}")
-    public String modificarCliente(Cliente cliente,Model model){
-        cliente = clienteService.getCliente(cliente);
+
+    @GetMapping("/cliente/busqueda")
+    public String busquedaCliente(Cliente cliente) {
+        return "cliente/buscar";
+    }
+
+    @PostMapping("/cliente/buscar")
+    public String buscarCliente(Cliente cliente, Model model) {
+        List<Cliente> clientes = clienteService.findByApellidos(cliente.getApellidos());
+        cliente = clientes.get(0);
         model.addAttribute("cliente",cliente);
         return "cliente/modificar";
     }
-    
-    
+
+    @GetMapping("/cliente/modificar/{idCliente}")
+    public String modificarCliente(Cliente cliente, Model model) {
+        cliente = clienteService.getCliente(cliente);
+        model.addAttribute("cliente", cliente);
+        return "cliente/modificar";
+    }
+
     @GetMapping("/cliente/eliminar/{idCliente}")
-    public String eliminarCliente(Cliente cliente){
+    public String eliminarCliente(Cliente cliente) {
         clienteService.delete(cliente);
         return "redirect:/cliente/listado";
     }

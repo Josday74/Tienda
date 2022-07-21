@@ -3,10 +3,6 @@ package com.tienda.service;
 import com.tienda.domain.Categoria;
 import java.util.List;
 
-/**
- *
- * @author Josday
- */
 public interface CategoriaService {
     
     public List<Categoria> getCategorias(boolean activos);
@@ -15,5 +11,6 @@ public interface CategoriaService {
     
     public void delete(Categoria categoria);
     
-    public Categoria getCategoria(Categoria categoria);
+    public Categoria getCategoria(Categoria categoria);    
+    
 }

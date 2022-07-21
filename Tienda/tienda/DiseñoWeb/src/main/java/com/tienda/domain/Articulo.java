@@ -10,22 +10,22 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "articulo")
-public class Articulo implements Serializable {
-//Para utilizarlo en la generación de la llave primaria autoincremental
-
+@Table(name="articulo")
+public class Articulo implements Serializable {    
+    //Para utilizarlo en la generación de la llave primaria autoincremental
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idArticulo;
-    private long idCategoria;
+    private Long idCategoria;
     private String descripcion;
     private String detalle;
     private double precio;
     private int existencias;
     private boolean activo;
-    
-    public Articulo() {//Constructor default
+
+    public Articulo() {  //Constructor default
     }
 
     public Articulo(String descripcion, String detalle, double precio, int existencias, boolean activo) {
@@ -35,9 +35,4 @@ public class Articulo implements Serializable {
         this.existencias = existencias;
         this.activo = activo;
     }
-
-   
-
-    
- 
 }

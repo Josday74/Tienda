@@ -7,10 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-/**
- *
- * @author Josday
- */
 @Controller
 @Slf4j
 public class IndexController {
@@ -22,7 +18,6 @@ public class IndexController {
     public String inicio(Model model) {
         var articulos = articuloService.getArticulos(true);
         model.addAttribute("articulos", articulos);
-
         return "index";
     }
 

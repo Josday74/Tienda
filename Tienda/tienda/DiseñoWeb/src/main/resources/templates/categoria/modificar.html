@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>TechShop</title>
-        <meta charset="UTF-8">
-         <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+        <meta charset="UTF-8"/>
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
@@ -11,21 +11,21 @@
             <h2>Datos de Categoria</h2>
             <a th:href="@{/categoria/listado}">Regresar</a>
             <hr>
-            <br> 
             <form th:action="@{/categoria/guardar}"
                   method="post"
-                  th:object ="${categoria}">
+                  th:object="${categoria}">
                 <input type="hidden" name="idCategoria" th:field="*{idCategoria}"/>
-                
-                <label for="descripcion">Descripcion:</label>
+
+                <label for="descripcion">Descripción:</label>
                 <input type="text" name="descripcion" th:field="*{descripcion}"/>
-                <br>  
-                <label for="activo">Activos:</label>
-                <input type="boolean" name="activo" th:field="*{activo}"/>
-                <br>                
+                <br>
+                <label for="activo">Activa:</label>
+                <input type="checkbox" name="activo" th:field="*{activo}"/>
+                <hr>
                 <input type="submit" name="guardar" value="Guardar"/>
             </form>
         </div>
+        <footer th:replace="layout/plantilla :: footer"/>
+
     </body>
-    <footer th:replace="layout/plantilla :: footer"/>
 </html>

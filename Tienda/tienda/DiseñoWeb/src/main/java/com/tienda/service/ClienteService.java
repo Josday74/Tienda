@@ -3,10 +3,6 @@ package com.tienda.service;
 import com.tienda.domain.Cliente;
 import java.util.List;
 
-/**
- *
- * @author Josday
- */
 public interface ClienteService {
     
     public List<Cliente> getClientes();
@@ -15,5 +11,7 @@ public interface ClienteService {
     
     public void delete(Cliente cliente);
     
-    public Cliente getCliente(Cliente cliente);
+    public Cliente getCliente(Cliente cliente);    
+    
+    public List<Cliente> findByApellidos(String apellidos);
 }

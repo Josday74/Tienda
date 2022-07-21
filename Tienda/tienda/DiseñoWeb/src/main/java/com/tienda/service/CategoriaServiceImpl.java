@@ -2,25 +2,28 @@ package com.tienda.service;
 
 import com.tienda.dao.CategoriaDao;
 import com.tienda.domain.Categoria;
+import com.tienda.service.CategoriaService;
 import java.util.List;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Service
 public class CategoriaServiceImpl implements CategoriaService {
 
-    //Se crea en tiempo de ejecucion si aun no se a creado
+    //Se crea en tiempo de ejecución si aún no se ha creado...
     @Autowired
     private CategoriaDao categoriaDao;
-
+    
     @Override
     @Transactional(readOnly = true)
     public List<Categoria> getCategorias(boolean activos) {
-        var lista = (List<Categoria>) categoriaDao.findAll();
+        
+        var lista =(List<Categoria>) categoriaDao.findAll();
         if (activos) {
             lista.removeIf(e -> !e.isActivo());
         }
+        
         return lista;
     }
 
@@ -41,5 +44,5 @@ public class CategoriaServiceImpl implements CategoriaService {
     public Categoria getCategoria(Categoria categoria) {
         return categoriaDao.findById(categoria.getIdCategoria()).orElse(null);
     }
-
+    
 }

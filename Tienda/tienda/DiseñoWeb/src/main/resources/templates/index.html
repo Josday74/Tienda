@@ -8,30 +8,28 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-            <h2> Nuestros Articulos</h2>
-            <div th:if="${articulos != null and !articulos.empty}" >
+            <h2>Nuestros Articulos</h2>
+            <div th:if="${articulos != null and !articulos.empty}">
                 <table border="1">
                     <thead>
                         <tr>
-                            <th>Descripcion</th>
+                            <th>Descripción</th>
                             <th>Precio</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="articulo: ${articulos}">
-                            <td th:text="${articulo.descripcion}"></td>
+                        <tr th:each="articulo : ${articulos}">
+                            <td th:text="${articulo.descripcion}"></td>                        
                             <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}" 
                                 style="text-align: right"></td>
-
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div th:if="${articulos == null and articulos.empty}">
-                No tenemos lista de articulos que mostrar..    
+            <div th:if="${articulos == null or articulos.empty}">
+                No tenemos lista de articulos que mostrar...
             </div>
         </div>
-        <footer th:replace="layout/plantilla :: footer"/>
-
+        <footer th:replace="layout/plantilla :: footer"/>        
     </body>
 </html>
