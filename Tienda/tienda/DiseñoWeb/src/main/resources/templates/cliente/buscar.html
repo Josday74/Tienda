@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
         <title>TechShop</title>
-        <meta charset="UTF-8"/>
-        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
@@ -12,19 +13,19 @@
             <a th:href="@{/cliente/listado}">Regresar</a>
             <br>
 
-            <form th:action="@{/cliente/buscar}"
-                  method="post"
-                  th:object="${cliente}">
+                <form th:action="@{/cliente/buscar}"
+                      method="post"
+                      th:object="${cliente}">
 
-                <input type="hidden" name="idCliente" th:field="*{idCliente}"/>
+                    <input type="hidden" name="idCliente" th:field="*{idCliente}"/>
 
-                <label for="apellidos">Apellidos:</label>
-                <input type="text" name="apellidos" th:field="*{apellidos}"/>
-                <br>            
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" name="apellidos" th:field="*{apellidos}"/>
+                    <br>            
 
 
-                <input type="submit" name="buscar" value="buscar"/>
-            </form>
+                        <input type="submit" name="buscar" value="buscar"/>
+                </form>
         </div>
         <footer th:replace="layout/plantilla :: footer"/>
 

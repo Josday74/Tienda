@@ -53,5 +53,11 @@ public class ClienteServiceImpl implements ClienteService {
     public List<Cliente> findByApellidos(String apellidos) {
         return clienteDao.findByApellidos(apellidos);
     }
+    //Codigo de clase
+    @Override
+    @Transactional(readOnly = true)
+    public Cliente getByApellidos(Cliente cliente) {
+        return((List<Cliente>) clienteDao.findByApellidos(cliente.getApellidos())).get(0);
+    }
     
 }

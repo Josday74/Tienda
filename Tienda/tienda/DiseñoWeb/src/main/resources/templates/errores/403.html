@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
+        <title>TechShop</title>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <section id="action" class="py-4 md-4 bg-light">
+            <div class="container">
+                <div class="row">
+
+                </div>
+            </div>
+
+        </section>
+
+        <section id="login">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>[[#{e403.titulo}]]</h4>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    [[#{e403.texto}]]
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="contenido">
+
+        </div>
+        <footer th:replace="layout/plantilla :: footer"/>        
+    </body>
+</html>

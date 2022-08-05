@@ -1,33 +1,32 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
         <title>TechShop</title>
-        <meta charset="UTF-8">
-        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
-        <div class="contenido">
-            <h2>Nuestros Articulos</h2>
-            <div th:if="${articulos != null and !articulos.empty}">
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>Descripción</th>
-                            <th>Precio</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="articulo : ${articulos}">
-                            <td th:text="${articulo.descripcion}"></td>                        
-                            <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}" 
-                                style="text-align: right"></td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="container">
+            <h2>[[#{index.titulo}]]</h2>
+            <div class="row row-cols-3" th:if="${articulos != null and !articulos.empty}">
+                <div class="card" th:each="articulo : ${articulos}">
+                    <div class="card-body">
+                        <h5 class="card-tittle">
+                            [[${articulo.descripcion}]]
+                        </h5>
+                        <h6 class="card-subtitle mf-2 text-muted text-end">
+                            [[${new java.text.DecimalFormat('¢#,##0.00').format(articulo.precio)}]]
+                            <img src="/images/CP-DELL-AX51I7_S810BW8C-2.jpg" alt=""/>
+                        
+                        <a class ="card-link" th:href="@{/carrito/agregar/} + ${articulo.idArticulo}">[[#{accion.agregar}]]</a>
+                        <p class="card-text">[[${articulo.detalle}]]</p>
+                    </div>
+                </div>
             </div>
             <div th:if="${articulos == null or articulos.empty}">
                 No tenemos lista de articulos que mostrar...
+                [[#{articulo.no_mostrar }]]
             </div>
         </div>
         <footer th:replace="layout/plantilla :: footer"/>        

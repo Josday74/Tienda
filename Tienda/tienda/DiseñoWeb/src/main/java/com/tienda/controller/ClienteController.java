@@ -22,6 +22,13 @@ public class ClienteController {
     @GetMapping("/cliente/listado")
     public String inicio(Model model) {
         var clientes = clienteService.getClientes();
+        
+        var limiteTotal = 0;
+        for(var c:clientes){
+        limiteTotal+=c.getCredito().getLimite();
+        }
+        model.addAttribute("limiteTotal",limiteTotal);
+        model.addAttribute("totalClientes",clientes.size());
         model.addAttribute("clientes", clientes);
         return "cliente/listado";
     }
@@ -39,15 +46,19 @@ public class ClienteController {
 
     @GetMapping("/cliente/busqueda")
     public String busquedaCliente(Cliente cliente) {
-        return "cliente/buscar";
+        return "/cliente/buscar";
     }
 
     @PostMapping("/cliente/buscar")
     public String buscarCliente(Cliente cliente, Model model) {
-        List<Cliente> clientes = clienteService.findByApellidos(cliente.getApellidos());
-        cliente = clientes.get(0);
-        model.addAttribute("cliente",cliente);
-        return "cliente/modificar";
+        cliente = clienteService.getByApellidos(cliente);
+        if (cliente != null) {
+            model.addAttribute("cliente", cliente);
+            return "/cliente/modificar";
+        } else {
+            return "/cliente/buscar";
+        }
+
     }
 
     @GetMapping("/cliente/modificar/{idCliente}")

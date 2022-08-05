@@ -12,6 +12,8 @@ public interface ClienteService {
     public void delete(Cliente cliente);
     
     public Cliente getCliente(Cliente cliente);    
+    //Codigo clase
+    public Cliente getByApellidos(Cliente cliente);
     
     public List<Cliente> findByApellidos(String apellidos);
 }
